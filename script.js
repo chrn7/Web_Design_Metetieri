@@ -85,6 +85,6 @@ if (contactForm) {
         ].filter(Boolean);
 
         const message = encodeURIComponent(lines.join('\n'));
-        window.open(`https://wa.me/5491161180741?text=${message}`, '_blank', 'noopener');
+        window.open(`https://wa.me/5491161179940?text=${message}`, '_blank', 'noopener');
     });
 }
