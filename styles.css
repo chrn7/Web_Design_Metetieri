@@ -1882,7 +1882,7 @@ textarea {
         left: 50%;
         right: auto;
         top: 106px;
-        width: min(288px, calc(100% - 2.5rem));
+        width: min(256px, calc(100% - 3rem));
         min-width: 0;
         max-height: calc(100svh - 126px);
         padding: 1rem;
@@ -1890,6 +1890,7 @@ textarea {
         border-radius: 24px;
         background: rgba(20, 34, 68, 0.95);
         backdrop-filter: blur(16px);
+        align-items: center;
         transform: translate(-50%, -8px);
     }
 
@@ -1898,13 +1899,18 @@ textarea {
     }
 
     .nav-links .nav-cta {
+        width: 100%;
         text-align: center;
     }
 
     .nav-links a {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 1rem;
         font-size: 0.82rem;
+        text-align: center;
     }
 
     .brand strong {
@@ -2186,7 +2192,7 @@ textarea {
 
     .nav-links {
         top: 98px;
-        width: min(272px, calc(100% - 1.75rem));
+        width: min(240px, calc(100% - 2rem));
         max-height: calc(100svh - 116px);
     }
 
