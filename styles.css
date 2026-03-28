@@ -36,6 +36,10 @@ body {
     linear-gradient(180deg, #050816 0%, #081023 45%, #060b18 100%);
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 body::before {
     content: "";
     position: fixed;
@@ -1610,13 +1614,41 @@ textarea {
 
 @media (max-width: 760px) {
     .page-shell {
-        padding-top: 232px;
+        padding-top: 172px;
+    }
+
+    #inicio,
+    #servicios,
+    #proceso,
+    #nosotros,
+    #testimonios,
+    #preguntas,
+    #contacto {
+        scroll-margin-top: 150px;
     }
 
     .topbar {
+        grid-template-columns: 1fr auto;
+        align-items: center;
         border-radius: 0 0 14px 14px;
-        padding: 0.75rem 0.85rem;
-        gap: 0.55rem;
+        padding: 0.65rem 0.85rem;
+        gap: 0.75rem;
+    }
+
+    .topbar-contact {
+        display: none;
+    }
+
+    .topbar-location {
+        justify-self: start;
+        text-align: left;
+        font-size: 0.67rem;
+        line-height: 1.25;
+    }
+
+    .topbar-actions {
+        justify-self: end;
+        gap: 0.35rem;
     }
 
     .topbar-contact span:last-child {
@@ -1632,15 +1664,28 @@ textarea {
     }
 
     .nav-links {
-        left: 0;
-        right: 0;
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        top: 106px;
+        width: auto;
         min-width: 0;
-        width: 100%;
-        top: calc(100% + 0.6rem);
+        max-height: calc(100svh - 126px);
+        padding: 1rem;
+        gap: 0.45rem;
+        border-radius: 24px;
+        background: rgba(7, 12, 25, 0.98);
+        backdrop-filter: blur(16px);
     }
 
     .nav-links .nav-cta {
         text-align: center;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.82rem;
     }
 
     .brand strong {
@@ -1656,6 +1701,8 @@ textarea {
     .navbar {
         align-items: center;
         gap: 0.75rem;
+        min-height: 62px;
+        padding: 0.8rem 0 0.95rem;
     }
 
     .footer-brand .brand-mark {
@@ -1667,17 +1714,31 @@ textarea {
     }
 
     .hero {
-        padding: 3rem 0 2.7rem;
+        padding: 2.4rem 0 2.7rem;
         min-height: auto;
+        background-position: center, center, center, center, 62% center;
     }
 
     .hero-layout {
         gap: 1.5rem;
+        text-align: center;
+    }
+
+    .hero-copy {
+        margin: 0 auto;
+        max-width: 36rem;
+    }
+
+    .hero-eyebrow,
+    .eyebrow {
+        margin-inline: auto;
     }
 
     .hero-cta-card {
         padding: 1.4rem;
         border-radius: 26px;
+        width: min(100%, 34rem);
+        margin: 0 auto;
     }
 
     .hero-cta-card h2 {
@@ -1694,6 +1755,7 @@ textarea {
         width: 100%;
         min-width: 0;
         padding: 1.15rem 1.25rem;
+        min-height: 4.1rem;
     }
 
     .hero-copy h1 {
@@ -1704,12 +1766,14 @@ textarea {
 
     .hero-benefits {
         grid-template-columns: 1fr;
+        margin-top: 1.4rem;
     }
 
     .hero-benefits li {
         padding: 0.95rem 1rem;
         border-radius: 20px;
         font-size: 0.98rem;
+        text-align: left;
     }
 
     .hero-lead-strong {
@@ -1739,6 +1803,7 @@ textarea {
 
     .section-heading {
         margin-bottom: 1.6rem;
+        text-align: center;
     }
 
     .section-heading h2,
@@ -1753,8 +1818,12 @@ textarea {
     .testimonials-section,
     .process-section,
     .contact-section {
-        padding-top: 1.5rem;
+        padding-top: 1.75rem;
         padding-bottom: 3.25rem;
+    }
+
+    .trust-band {
+        margin: 1.25rem auto 3rem;
     }
 
     .service-card,
@@ -1763,6 +1832,35 @@ textarea {
     .trust-band article,
     .timeline-item {
         padding: 1.2rem;
+    }
+
+    .trust-band article,
+    .service-card,
+    .testimonial,
+    .about-grid article,
+    .timeline-item,
+    .faq-item,
+    .reviews-summary,
+    .contact-form,
+    .map-card {
+        width: min(100%, 36rem);
+        margin-inline: auto;
+    }
+
+    .reviews-summary {
+        align-items: center;
+        text-align: center;
+    }
+
+    .reviews-score,
+    .testimonial-head,
+    .contact-copy {
+        text-align: center;
+    }
+
+    .contact-copy h2,
+    .contact-copy p {
+        margin-inline: auto;
     }
 
     .service-card h3,
@@ -1791,14 +1889,17 @@ textarea {
 
     .footer-layout {
         gap: 1.6rem;
+        text-align: center;
     }
 
     .footer-links {
         gap: 0.65rem;
+        justify-items: center;
     }
 
     .footer-quote {
         max-width: 30ch;
+        margin-inline: auto;
     }
 
     .footer-back-top {
@@ -1817,7 +1918,17 @@ textarea {
 
 @media (max-width: 560px) {
     .page-shell {
-        padding-top: 246px;
+        padding-top: 164px;
+    }
+
+    #inicio,
+    #servicios,
+    #proceso,
+    #nosotros,
+    #testimonios,
+    #preguntas,
+    #contacto {
+        scroll-margin-top: 138px;
     }
 
     .navbar {
@@ -1845,13 +1956,28 @@ textarea {
         padding-inline: 0.7rem;
     }
 
+    .topbar-location {
+        font-size: 0.62rem;
+    }
+
     .topbar-action {
         width: 1.9rem;
         height: 1.9rem;
     }
 
+    .nav-links {
+        top: 98px;
+        left: 0.75rem;
+        right: 0.75rem;
+        max-height: calc(100svh - 116px);
+    }
+
     .hero-copy h1 {
         font-size: clamp(2.4rem, 13vw, 3.6rem);
+    }
+
+    .hero-copy {
+        max-width: 32rem;
     }
 
     .hero-lead {
@@ -1875,6 +2001,7 @@ textarea {
     .button-hero {
         padding: 1rem 1rem;
         gap: 0.75rem;
+        min-height: 3.8rem;
     }
 
     .button-label {
@@ -1940,5 +2067,67 @@ textarea {
 
     .map-card iframe {
         min-height: 260px;
+    }
+}
+
+@media (max-width: 420px) {
+    .page-shell {
+        padding-top: 156px;
+    }
+
+    .topbar {
+        padding: 0.55rem 0.65rem;
+    }
+
+    .topbar-location {
+        font-size: 0.58rem;
+    }
+
+    .brand-mark {
+        width: 3rem;
+    }
+
+    .brand strong {
+        font-size: 0.92rem;
+    }
+
+    .hero {
+        padding: 2rem 0 2.4rem;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(2.15rem, 12.5vw, 3rem);
+        line-height: 0.98;
+    }
+
+    .hero-lead-strong {
+        font-size: 1rem;
+    }
+
+    .button-hero {
+        padding: 0.92rem 0.92rem;
+        gap: 0.6rem;
+    }
+
+    .button-arrow {
+        display: none;
+    }
+
+    .button-icon {
+        width: 2.55rem;
+        height: 2.55rem;
+    }
+
+    .button-label {
+        font-size: 0.92rem;
+    }
+
+    .service-media {
+        height: 138px;
+    }
+
+    .whatsapp-float {
+        width: 3.1rem;
+        height: 3.1rem;
     }
 }

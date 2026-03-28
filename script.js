@@ -9,13 +9,42 @@ if (menuToggle && navLinks) {
         const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
         menuToggle.setAttribute('aria-expanded', String(!expanded));
         navLinks.classList.toggle('is-open', !expanded);
+        document.body.classList.toggle('menu-open', !expanded);
     });
 
     navItems.forEach((item) => {
         item.addEventListener('click', () => {
             menuToggle.setAttribute('aria-expanded', 'false');
             navLinks.classList.remove('is-open');
+            document.body.classList.remove('menu-open');
         });
+    });
+
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) {
+            return;
+        }
+
+        if (!navLinks.classList.contains('is-open')) {
+            return;
+        }
+
+        if (navLinks.contains(target) || menuToggle.contains(target)) {
+            return;
+        }
+
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1180) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('is-open');
+            document.body.classList.remove('menu-open');
+        }
     });
 }
 
