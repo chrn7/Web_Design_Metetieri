@@ -844,11 +844,79 @@ textarea {
     background: linear-gradient(180deg, rgba(17, 28, 55, 0.95), rgba(11, 18, 36, 0.95));
 }
 
-.services-section,
 .faq-section,
-.about-section,
-.testimonials-section {
+.about-section {
     padding: 2rem 0 5.25rem;
+}
+
+.services-section,
+.testimonials-section {
+    position: relative;
+    isolation: isolate;
+    padding: 2.35rem 0 5rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.services-section::before,
+.testimonials-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #f9fafc 0%, #edf1f7 100%);
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    z-index: -1;
+}
+
+.services-section .section-heading h2,
+.testimonials-section .section-heading h2 {
+    color: #10203f;
+}
+
+.services-section .section-heading p,
+.testimonials-section .section-heading p,
+.services-section .service-card p,
+.testimonials-section .reviews-summary p,
+.testimonials-section .reviews-score span,
+.testimonials-section .testimonial-head span,
+.testimonials-section .testimonial p {
+    color: #5d6b84;
+}
+
+.services-section .service-card h3,
+.testimonials-section .testimonial-head h3,
+.testimonials-section .reviews-summary,
+.testimonials-section .reviews-score strong {
+    color: #10203f;
+}
+
+.services-section .service-card,
+.testimonials-section .testimonial,
+.testimonials-section .reviews-summary {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 252, 0.98));
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.services-section .service-card:hover,
+.testimonials-section .testimonial-link:hover {
+    border-color: rgba(201, 169, 100, 0.28);
+    background: linear-gradient(180deg, rgba(247, 250, 255, 0.98), rgba(234, 241, 251, 0.98));
+}
+
+.testimonials-section .reviews-divider {
+    background: rgba(15, 35, 71, 0.12);
+}
+
+.testimonials-section .testimonial-link span {
+    color: #2f5edc;
 }
 
 #inicio,
